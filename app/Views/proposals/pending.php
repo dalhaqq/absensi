@@ -7,7 +7,7 @@
             <div class="flex justify-between mb-6">
                 <div>
                     <div class="flex items-center mb-1">
-                        <div class="text-2xl text-mygreen font-semibold">Perizinan</div>
+                        <div class="text-2xl text-mygreen font-semibold">Perizinan Menunggu Persetujuan</div>
                     </div>
                 </div>
             </div>
@@ -16,11 +16,11 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Date Start</th>
-                            <th>Date End</th>
-                            <th>Type</th>
-                            <th>Visit Location</th>
-                            <th>Description</th>
+                            <th>Tanggal Mulai</th>
+                            <th>Tanggal Selesai</th>
+                            <th>Jenis</th>
+                            <th>Lokasi Kunjungan</th>
+                            <th>Descripsi</th>
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
@@ -48,7 +48,7 @@
 </div>
     <script>
         function cancelProposal(id) {
-            if (confirm('Are you sure?')) {
+            if (confirm('Apakah Anda yakin?')) {
                 const form = document.createElement('form');
                 form.method = 'post';
                 form.action = '<?= route_to('proposals.cancel', 0) ?>'.replace('0', id);

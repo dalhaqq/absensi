@@ -11,7 +11,7 @@
                     </div>
                 </div>
                 <div>
-                    <a href="<?= route_to('admins') ?>" class="btn bg-myorange text-white">Back</a>
+                    <a href="<?= route_to('admins') ?>" class="btn bg-myorange text-white">Kembali</a>
                 </div>
             </div>
             <div>

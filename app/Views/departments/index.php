@@ -7,11 +7,11 @@
             <div class="flex justify-between mb-6">
                 <div>
                     <div class="flex items-center mb-1">
-                        <div class="text-2xl text-mygreen font-semibold">Departments</div>
+                        <div class="text-2xl text-mygreen font-semibold">Divisi/Cabang</div>
                     </div>
                 </div>
                 <div>
-                    <a href="<?= route_to('departments.create') ?>" class="btn bg-myorange text-white">Create</a>
+                    <a href="<?= route_to('departments.create') ?>" class="btn bg-myorange text-white">Tambah</a>
                 </div>
             </div>
             <div class="overflow-x-auto">
@@ -38,7 +38,7 @@
                                         <a href="<?= route_to('departments.edit', $department->id) ?>" class="btn text-white bg-mygreen">Edit</a>
                                     </div>
                                     <div>
-                                        <a onclick="deleteDepartment(<?= $department->id ?>)" class="btn text-black bg-mygrey">Delete</a>
+                                        <a onclick="deleteDepartment(<?= $department->id ?>)" class="btn text-black bg-mygrey">Hapus</a>
                                     </div>
                                 </td>
                             </tr>
@@ -51,7 +51,7 @@
 </div>
 <script>
     function deleteDepartment(id) {
-        if (confirm('Are you sure?')) {
+        if (confirm('Apakah Anda yakin?')) {
             const form = document.createElement('form');
             form.method = 'post';
             form.action = '<?= route_to('departments.destroy', 0) ?>'.replace('0', id);

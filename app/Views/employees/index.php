@@ -32,11 +32,11 @@
             <div class="flex justify-between mb-6">
                 <div>
                     <div class="flex items-center mb-1">
-                        <div class="text-2xl text-mygreen font-semibold">Employees</div>
+                        <div class="text-2xl text-mygreen font-semibold">Pegawai</div>
                     </div>
                 </div>
                 <div>
-                    <a href="<?= route_to('employees.create') ?>" class="btn bg-myorange text-white">Create</a>
+                    <a href="<?= route_to('employees.create') ?>" class="btn bg-myorange text-white">Tambah</a>
                 </div>
             </div>
             <?php if ($contractsAboutToExpire->count() > 0) : ?>
@@ -131,7 +131,7 @@
 </div>
 <script>
     function deleteEmployee(id) {
-        if (confirm('Are you sure?')) {
+        if (confirm('Apakah Anda yakin?')) {
             const form = document.createElement('form');
             form.method = 'post';
             form.action = '<?= route_to('employees.destroy', 0) ?>'.replace('0', id);
@@ -140,7 +140,7 @@
         }
     }
     function updateContract(id) {
-        if (confirm('Are you sure?')) {
+        if (confirm('Apakah Anda yakin?')) {
             const form = document.createElement('form');
             form.method = 'post';
             form.action = '<?= route_to('employees.updateContract', 0) ?>'.replace('0', id);

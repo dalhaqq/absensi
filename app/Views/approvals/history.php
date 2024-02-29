@@ -7,7 +7,7 @@
             <div class="flex justify-between mb-6">
                 <div>
                     <div class="flex items-center mb-1">
-                        <div class="text-2xl text-mygreen font-semibold">Approvals History</div>
+                        <div class="text-2xl text-mygreen font-semibold">Riwayat Persetujuan</div>
                     </div>
                 </div>
             </div>
@@ -16,12 +16,12 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Employee Name</th>
-                            <th>Date Start</th>
-                            <th>Date End</th>
-                            <th>Type</th>
-                            <th>Visit Location</th>
-                            <th>Description</th>
+                            <th>Nama Pegawai</th>
+                            <th>Tanggal Mulai</th>
+                            <th>Tanggal Selesai</th>
+                            <th>Jenis</th>
+                            <th>Lokasi Kunjungan</th>
+                            <th>Deskripsi</th>
                             <th>Status</th>
                         </tr>
                     </thead>

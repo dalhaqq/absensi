@@ -7,7 +7,7 @@
             <div class="flex justify-between mb-6">
                 <div>
                     <div class="flex items-center mb-1">
-                        <div class="text-2xl text-mygreen font-semibold">Approvals Pending</div>
+                        <div class="text-2xl text-mygreen font-semibold">Kelola Perizinan</div>
                     </div>
                 </div>
             </div>
@@ -16,12 +16,12 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Employee Name</th>
-                            <th>Date Start</th>
-                            <th>Date End</th>
-                            <th>Type</th>
-                            <th>Visit Location</th>
-                            <th>Description</th>
+                            <th>Nama Pegawai</th>
+                            <th>Tanggal Mulai</th>
+                            <th>Tanggal Selesai</th>
+                            <th>Jenis</th>
+                            <th>Lokasi Kunjungan</th>
+                            <th>Deskripsi</th>
                             <th>Status</th>
                             <th>Aksi</th>
                         </tr>
@@ -37,13 +37,13 @@
                                 <td><?= ucfirst($proposal->type) ?></td>
                                 <td><?= $proposal->type == 'visit' ? $proposal->location() : '-' ?></td>
                                 <td><?= $proposal->description ?></td>
-                                <td>Pending</td>
+                                <td>Menunggu Persetujuan</td>
                                 <td class="py-2 flex justify-center gap-2">
                                     <div>
-                                        <a onclick="approveProposal(<?= $proposal->id ?>)" class="btn bg-mygreen text-white">Approve</a>
+                                        <a onclick="approveProposal(<?= $proposal->id ?>)" class="btn bg-mygreen text-white">Setujui</a>
                                     </div>
                                     <div>
-                                        <a onclick="rejectProposal(<?= $proposal->id ?>)" class="btn bg-mygrey text-black">Reject</a>
+                                        <a onclick="rejectProposal(<?= $proposal->id ?>)" class="btn bg-mygrey text-black">Tolaks</a>
                                     </div>
                                 </td>
                             </tr>

@@ -7,12 +7,12 @@
             <div class="flex justify-between mb-6">
                 <div>
                     <div class="flex items-center mb-1">
-                        <div class="text-2xl text-mygreen font-semibold">Admins</div>
+                        <div class="text-2xl text-mygreen font-semibold">Admin</div>
                     </div>
                 </div>
                 <?php if (count($employees) > 0) : ?>
                     <div>
-                        <a href="<?= route_to('admins.create') ?>" class="ml-4 bg-myorange text-white px-4 py-2 rounded-md float-right">Create</a>
+                        <a href="<?= route_to('admins.create') ?>" class="ml-4 bg-myorange text-white px-4 py-2 rounded-md float-right">Tambah</a>
                     </div>
                 <?php endif; ?>
             </div>
@@ -37,7 +37,7 @@
                                 <td><?= $admin->is_super ? 'Super Admin' : 'Admin' ?></td>
                                 <td class="py-2 flex justify-center gap-2">
                                     <div><a href="<?= route_to('admins.edit', $admin->employee_id) ?>" class="btn bg-mygreen text-white">Edit</a></div>
-                                    <div><a onclick="deleteAdmin(<?= $admin->employee_id ?>)" class="btn bg-mygrey text-black">Delete</a></div>
+                                    <div><a onclick="deleteAdmin(<?= $admin->employee_id ?>)" class="btn bg-mygrey text-black">Hapus</a></div>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -49,7 +49,7 @@
 </div>
 <script>
     function deleteAdmin(id) {
-        if (confirm('Are you sure?')) {
+        if (confirm('Apakah Anda yakin?')) {
             const form = document.createElement('form');
             form.method = 'post';
             form.action = '<?= route_to('admins.destroy', 0) ?>'.replace('0', id);
