@@ -1,10 +1,22 @@
 <?= $this->extend('layouts/base') ?>
 
+<?= $this->section('head') ?>
+<style>
+	body {
+		background-image: url('<?php echo base_url('bg-login.jpg') ?>') !important;
+		background-size: cover;
+		background-position: left bottom;
+	}
+</style>
+<?= $this->endSection() ?>
+
 <?= $this->section('content') ?>
 <!-- component -->
 <div class="min-h-screen flex items-center justify-center w-full dark:bg-black">
 	<div class="bg-white dark:bg-black shadow-md rounded-lg px-8 py-6 max-w-md">
-		<h1 class="text-2xl font-bold text-center mb-4 dark:text-black">Welcome Back!</h1>
+		<img src="<?php echo base_url('site-logo.png') ?>" alt="logo" class="w-60 mx-auto mb-4">
+		<h1 class="text-2xl font-semibold text-center mb-4 dark:text-black">Login</h1>
+		<h2 class="text-center text-black mb-4">Sistem Informasi Perizinan BNI Finance</h2>
 		<form action="<?= route_to('login') ?>" method="post">
 			<div class="mb-4">
 				<label for="username" class="block text-sm font-medium text-black dark:text-black mb-2">Username</label>
