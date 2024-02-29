@@ -2,10 +2,10 @@
 
 namespace App\Database\Seeds;
 
-use App\Models\AdminModel;
-use App\Models\DepartmentModel;
-use App\Models\EmployeeModel;
-use App\Models\RoleModel;
+use App\Models\Eloquent\AdminModel;
+use App\Models\Eloquent\DepartmentModel;
+use App\Models\Eloquent\EmployeeModel;
+use App\Models\Eloquent\RoleModel;
 use CodeIgniter\Database\Seeder;
 
 class AppSeeder extends Seeder
@@ -19,30 +19,27 @@ class AppSeeder extends Seeder
         $this->db->table('employees')->truncate();
         $this->db->table('admins')->truncate();
 
-        $role = new RoleModel();
-        $role->insert([
+        RoleModel::create([
             'name' => 'Supervisor',
             'code' => 'SPV',
         ]);
-        $role->insert([
+        RoleModel::create([
             'name' => 'Staff',
             'code' => 'STF',
         ]);
-        $department = new DepartmentModel();
-        $department->insert([
+        DepartmentModel::create([
             'name' => 'IT Department',
             'code' => 'IT',
-            'type' => DepartmentModel::TYPE_HEAD_OFFICE,
+            'type' => 'head',
             'created_by' => 1,
         ]);
-        $department->insert([
+        DepartmentModel::create([
             'name' => 'Branch A',
             'code' => 'BA',
-            'type' => DepartmentModel::TYPE_BRANCH,
+            'type' => 'branch',
             'created_by' => 1,
         ]);
-        $employee = new EmployeeModel();
-        $employee->insert([
+        EmployeeModel::create([
             'code' => 'EMP001',
             'password' => password_hash('password', PASSWORD_DEFAULT),
             'name' => 'John Doe',
@@ -52,8 +49,7 @@ class AppSeeder extends Seeder
             'role_id' => 1,
             'created_by' => 1,
         ]);
-        $admin = new AdminModel();
-        $admin->insert([
+        AdminModel::create([
             'employee_id' => 1,
             'is_super' => 1,
         ]);
