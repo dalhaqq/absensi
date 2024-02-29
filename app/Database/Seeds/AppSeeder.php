@@ -19,39 +19,16 @@ class AppSeeder extends Seeder
         $this->db->table('employees')->truncate();
         $this->db->table('admins')->truncate();
 
-        RoleModel::create([
-            'name' => 'Supervisor',
-            'code' => 'SPV',
-        ]);
-        RoleModel::create([
-            'name' => 'Staff',
-            'code' => 'STF',
-        ]);
-        DepartmentModel::create([
-            'name' => 'IT Department',
-            'code' => 'IT',
-            'type' => 'head',
-            'created_by' => 1,
-        ]);
-        DepartmentModel::create([
-            'name' => 'Branch A',
-            'code' => 'BA',
-            'type' => 'branch',
-            'created_by' => 1,
-        ]);
-        EmployeeModel::create([
-            'code' => 'EMP001',
-            'password' => password_hash('password', PASSWORD_DEFAULT),
-            'name' => 'John Doe',
-            'position' => 'Programmer',
-            'date_joined' => '2024-02-28',
-            'department_id' => 1,
-            'role_id' => 1,
-            'created_by' => 1,
-        ]);
-        AdminModel::create([
-            'employee_id' => 1,
-            'is_super' => 1,
-        ]);
+        $this->db->query('INSERT INTO `roles` (`id`, `name`, `code`) VALUES
+            (1, \'Supervisor\', \'SPV\'),
+            (2, \'Staff\', \'STF\')');
+        $this->db->query('INSERT INTO `departments` (`id`, `name`, `code`, `type`, `created_by`) VALUES
+            (1, \'IT Department\', \'IT\', \'head\', 1),
+            (2, \'Branch A\', \'BA\', \'branch\', 1)');
+        $pass = password_hash('password', PASSWORD_DEFAULT);
+        $this->db->query('INSERT INTO `employees` (`id`, `code`, `password`, `name`, `position`, `date_joined`, `department_id`, `role_id`, `created_by`) VALUES
+            (1, \'EMP001\', \'' . $pass . '\', \'John Doe\', \'Programmer\', \'2024-02-28\', 1, 1, 1)');
+        $this->db->query('INSERT INTO `admins` (`employee_id`, `is_super`) VALUES
+            (1, 1)');
     }
 }
