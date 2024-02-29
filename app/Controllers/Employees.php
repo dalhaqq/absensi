@@ -156,8 +156,8 @@ class Employees extends BaseController
         foreach ($employee->contracts as $contract) {
             $contract->delete();
         }
-        foreach ($employee->admin as $admin) {
-            $admin->delete();
+        if ($employee->admin) {
+            $employee->admin->delete();
         }
         $employee->delete();
         return redirect('employees')->with('success', 'Employee has been deleted');
