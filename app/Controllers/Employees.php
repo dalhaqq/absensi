@@ -18,7 +18,25 @@ class Employees extends BaseController
             'role', 'department',
             'contracts' => fn ($query) => $query->orderBy('date_start', 'desc')
         ])->get();
-        return view('employees/index', compact('title', 'employees'));
+        $contractsAboutToExpire = $employees->filter(function ($employee) {
+            return $employee->contracts[0]->date_end < time_now()->addWeek()->toDateString();
+        });
+        $activeEmployees = $employees->filter(function ($employee) {
+            return $employee->contracts[0]->date_end >= time_now()->toDateString();
+        });
+        return view('employees/index', compact('title', 'employees', 'contractsAboutToExpire', 'activeEmployees'));
+    }
+
+    public function updateContract($id)
+    {
+        $employee = EmployeeModel::with(['contracts' => fn ($query) => $query->orderBy('date_start', 'desc')])->findOrFail($id);
+        $contract = $employee->contracts->first();
+        $date_end = Carbon::createFromFormat('Y-m-d', $contract->date_end);
+        $employee->contracts()->create([
+            'date_start' => $date_end->addDay()->toDateString(),
+            'date_end' => $date_end->addMonths(6)->toDateString(),
+        ]);
+        return redirect('employees')->with('success', 'Contract has been updated');
     }
 
     public function create()

@@ -2,6 +2,31 @@
 
 <?= $this->section('content') ?>
 <div class="p-6">
+    <div class="grid grid-cols-2 gap-6 mb-6">
+        <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+            <div class="flex justify-between mb-6">
+                <div>
+                    <div class="flex items-center mb-1">
+                        <div class="text-2xl font-semibold"><?= $activeEmployees->count() ?></div>
+                    </div>
+                    <div class="text-sm font-medium text-gray-400">Pegawai Aktif</div>
+                </div>
+            </div>
+
+            
+        </div>
+        <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+            <div class="flex justify-between mb-4">
+                <div>
+                    <div class="flex items-center mb-1">
+                        <div class="text-2xl font-semibold"><?= $contractsAboutToExpire->count() ?></div>
+                    </div>
+                    <div class="text-sm font-medium text-gray-400">Pegawai hampir habis kontrak</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
     <div class="grid grid-cols-1 gap-6 mb-6">
         <div class="card-container">
             <div class="flex justify-between mb-6">
@@ -13,6 +38,49 @@
                 <div>
                     <a href="<?= route_to('employees.create') ?>" class="btn bg-myorange text-white">Create</a>
                 </div>
+            </div>
+            <?php if ($contractsAboutToExpire->count() > 0) : ?>
+                <div class="mb-6">
+                    <div class="text-myorange font-semibold">Kontrak yang akan segera berakhir</div>
+                    <div class="grid grid-cols-1 gap-6 mt-6">
+                        <div class="overflow-x-auto">
+                            <table class="table-default">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama</th>
+                                        <th>Posisi</th>
+                                        <th>Divisi</th>
+                                        <th>Jabatan</th>
+                                        <th>Tanggal Selesai Kontrak</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $no = 1;
+                                    foreach ($contractsAboutToExpire as $employee) : ?>
+                                        <tr>
+                                            <td class="text-center"><?= $no++ ?></td>
+                                            <td><?= $employee->name ?></td>
+                                            <td><?= $employee->position ?></td>
+                                            <td><?= $employee->department->name ?></td>
+                                            <td><?= $employee->role->name ?></td>
+                                            <td class="text-center"><?= $employee->contracts[0]->date_end ?></td>
+                                            <td class="py-2 flex justify-center gap-2">
+                                                <div>
+                                                    <a onclick="updateContract(<?= $employee->id ?>)" class="btn bg-mygrey text-black">Perbarui</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div class="mb-6">
+                <div class="text-mygreen font-semibold">Daftar Pegawai</div>
             </div>
             <div class="overflow-x-auto">
                 <table class="table-default">
@@ -67,6 +135,15 @@
             const form = document.createElement('form');
             form.method = 'post';
             form.action = '<?= route_to('employees.destroy', 0) ?>'.replace('0', id);
+            document.body.appendChild(form);
+            form.submit();
+        }
+    }
+    function updateContract(id) {
+        if (confirm('Are you sure?')) {
+            const form = document.createElement('form');
+            form.method = 'post';
+            form.action = '<?= route_to('employees.updateContract', 0) ?>'.replace('0', id);
             document.body.appendChild(form);
             form.submit();
         }

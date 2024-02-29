@@ -2,6 +2,7 @@
 
 namespace App\Models\Eloquent;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 class EmployeeContractModel extends Model
@@ -11,4 +12,9 @@ class EmployeeContractModel extends Model
     protected $fillable = [
         'employee_id', 'date_start', 'date_end',
     ];
+
+    public function employee()
+    {
+        return $this->belongsTo(EmployeeModel::class);
+    }
 }

@@ -34,6 +34,7 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
         $routes->get('edit/(:num)', [Employees::class, 'edit/$1'], ['as' => 'employees.edit']);
         $routes->post('edit/(:num)', [Employees::class, 'update/$1'], ['as' => 'employees.update']);
         $routes->post('delete/(:num)', [Employees::class, 'destroy/$1'], ['as' => 'employees.destroy']);
+        $routes->post('updateContract/(:num)', [Employees::class, 'updateContract/$1'], ['as' => 'employees.updateContract']);
     });
     $routes->group('admins', ['filter' => ['auth', 'access:super']], function ($routes) {
         $routes->get('/', [Admins::class, 'index'], ['as' => 'admins']);
