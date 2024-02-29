@@ -32,7 +32,7 @@
                                 <td><?= $proposal->date_start ?></td>
                                 <td><?= $proposal->date_end ?></td>
                                 <td><?= ucfirst($proposal->type) ?></td>
-                                <td><?= $proposal->type == 'visit' ? $proposal->visit_long . ',' .  $proposal->visit_lat : '-' ?></td>
+                                <td><?= $proposal->type == 'visit' ? $proposal->location() : '-' ?></td>
                                 <td><?= $proposal->description ?></td>
                                 <td>Pending</td>
                                 <td>

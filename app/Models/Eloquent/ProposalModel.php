@@ -30,4 +30,20 @@ class ProposalModel extends Model
     {
         return $this->hasOne(ProposalActionModel::class, 'proposal_id');
     }
+
+    public function location()
+    {
+        $curl = curl_init();
+        curl_setopt_array($curl, [
+            CURLOPT_URL => "https://geocode.maps.co/reverse?lat={$this->visit_lat}&lon={$this->visit_long}&api_key=65e03211ae503571510060jzw8ad4af",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_CUSTOMREQUEST => "GET",
+        ]);
+        $response = curl_exec($curl);
+        curl_close($curl);
+        return json_decode($response, true)['display_name'];
+    }
 }

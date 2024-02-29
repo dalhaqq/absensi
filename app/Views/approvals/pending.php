@@ -35,7 +35,7 @@
                                 <td class="text-center"><?= $proposal->date_start ?></td>
                                 <td class="text-center"><?= $proposal->date_end ?></td>
                                 <td><?= ucfirst($proposal->type) ?></td>
-                                <td><?= $proposal->type == 'visit' ? $proposal->visit_long . ',' .  $proposal->visit_lat : '-' ?></td>
+                                <td><?= $proposal->type == 'visit' ? $proposal->location() : '-' ?></td>
                                 <td><?= $proposal->description ?></td>
                                 <td>Pending</td>
                                 <td class="py-2 flex justify-center gap-2">
