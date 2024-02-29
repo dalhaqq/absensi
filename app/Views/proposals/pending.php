@@ -7,7 +7,7 @@
             <div class="flex justify-between mb-6">
                 <div>
                     <div class="flex items-center mb-1">
-                        <div class="text-2xl text-mygreen font-semibold">Proposal Pendings</div>
+                        <div class="text-2xl text-mygreen font-semibold">Perizinan</div>
                     </div>
                 </div>
             </div>

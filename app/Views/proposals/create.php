@@ -7,7 +7,7 @@
             <div class="flex justify-between mb-6">
                 <div>
                     <div class="flex items-center mb-1">
-                        <div class="text-2xl text-mygreen font-semibold">Create Proposal</div>
+                        <div class="text-2xl text-mygreen font-semibold">Buat Perizinan</div>
                     </div>
                 </div>
                 <div>

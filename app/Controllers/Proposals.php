@@ -61,14 +61,14 @@ class Proposals extends BaseController
     public function pending()
     {
         $title = 'Pending Proposals';
-        $proposals = ProposalModel::doesntHave('action')->get();
+        $proposals = ProposalModel::doesntHave('action')->where('employee_id', get_user()->id)->get();
         return view('proposals/pending', compact('title', 'proposals'));
     }
 
     public function history()
     {
         $title = 'Proposal History';
-        $proposals = ProposalModel::whereHas('action')->latest()->get();
+        $proposals = ProposalModel::whereHas('action')->where('employee_id', get_user()->id)->get();
         return view('proposals/history', compact('title', 'proposals'));
     }
 
