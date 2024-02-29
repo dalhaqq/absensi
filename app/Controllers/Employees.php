@@ -93,7 +93,7 @@ class Employees extends BaseController
 
         $employee = new EmployeeModel();
         $employee->fill($this->request->getPost());
-        $employee->password = password_hash($employee->code, PASSWORD_DEFAULT);
+        $employee->password = password_hash((string) $this->request->getPost('password'), PASSWORD_DEFAULT);
         $employee->created_by = session('id');
         $employee->save();
 
