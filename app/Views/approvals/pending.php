@@ -35,15 +35,15 @@
                                 <td class="text-center"><?= $proposal->date_start ?></td>
                                 <td class="text-center"><?= $proposal->date_end ?></td>
                                 <td><?= ucfirst($proposal->type) ?></td>
-                                <td><?= $proposal->type == 'visit' ? $proposal->location() : '-' ?></td>
+                                <td><?= $proposal->location ?></td>
                                 <td><?= $proposal->description ?></td>
                                 <td>Menunggu Persetujuan</td>
                                 <td class="py-2 flex justify-center gap-2">
                                     <div>
-                                        <a onclick="approveProposal(<?= $proposal->id ?>)" class="btn bg-mygreen text-white">Setujui</a>
+                                        <a onclick="approveProposal(<?= $proposal->id ?>)" class="btn bg-mygreen text-white">Approve</a>
                                     </div>
                                     <div>
-                                        <a onclick="rejectProposal(<?= $proposal->id ?>)" class="btn bg-mygrey text-black">Tolaks</a>
+                                        <a onclick="rejectProposal(<?= $proposal->id ?>)" class="btn bg-mygrey text-black">Reject</a>
                                     </div>
                                 </td>
                             </tr>
