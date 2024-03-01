@@ -20,7 +20,7 @@ class AppSeeder extends Seeder
         $this->db->table('admins')->truncate();
 
         $this->db->query('INSERT INTO `roles` (`id`, `name`, `code`) VALUES
-            (1, \'Supervisor\', \'SPV\'),
+            (1, \'Dept Head\', \'SPV\'),
             (2, \'Staff\', \'STF\')');
         $this->db->query('INSERT INTO `departments` (`id`, `name`, `code`, `type`, `created_by`) VALUES
             (1, \'IT Department\', \'IT\', \'head\', 1),

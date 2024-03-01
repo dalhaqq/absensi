@@ -20,6 +20,7 @@
                             <th>Tanggal Mulai</th>
                             <th>Tanggal Selesai</th>
                             <th>Jenis</th>
+                            <th>Keterangan Cuti</th>
                             <th>Lokasi Kunjungan</th>
                             <th>Deskripsi</th>
                             <th>Status</th>
@@ -35,6 +36,7 @@
                                 <td class="text-center"><?= $proposal->date_start ?></td>
                                 <td class="text-center"><?= $proposal->date_end ?></td>
                                 <td><?= ucfirst($proposal->type) ?></td>
+                                <td><?= $proposal->leave_type ?: '-' ?></td>
                                 <td><?= $proposal->location ?></td>
                                 <td><?= $proposal->description ?></td>
                                 <td>Menunggu Persetujuan</td>

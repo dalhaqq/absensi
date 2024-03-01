@@ -40,9 +40,28 @@
                         <input class="input" type="hidden" name="visit_long" id="visit_long" value="<?= set_value('visit_long') ?>">
                         <input class="input" type="hidden" name="visit_lat" id="visit_lat" value="<?= set_value('visit_lat') ?>">
                     </div>
+                    <div id="leave-type" class="input-group mb-6">
+                        <label class="label" for="leave_type">Jenis Cuti</label>
+                        <select class="select" name="leave_type" id="leave_type">
+                            <option value="Melangsungkan Pernikahan Untuk Pertama Kali - 3 hari" <?= set_value('leave_type') == 'Melaingsungkan Pernikahan Untuk Pertama Kali - 3 hari' ? 'selected' : '' ?>>Melaingsungkan Pernikahan Untuk Pertama Kali - 3 hari</option>
+                            <option value="Menikahkan Anak - 2 hari" <?= set_value('leave_type') == 'Menikahkan Anak - 2 hari' ? 'selected' : '' ?>>Menikahkan Anak - 2 hari</option>
+                            <option value="Istri Sah Karyawan Melahirkan/Keguguran - 2 hari" <?= set_value('leave_type') == 'Istri Sah Karyawan Melahirkan/Keguguran - 2 hari' ? 'selected' : '' ?>>Istri Sah Karyawan Melahirkan/Keguguran - 2 hari</option>
+                            <option value="Karyawati Keguguran - 1,5 bulan" <?= set_value('leave_type') == 'Karyawati Keguguran - 1,5 bulan' ? 'selected' : '' ?>>Karyawati Keguguran - 1,5 bulan</option>
+                            <option value="Istirahat Haid - 2 hari" <?= set_value('leave_type') == 'Istirahat Haid - 2 hari' ? 'selected' : '' ?>>Istirahat Haid - 2 hari</option>
+                            <option value="Khitanan/Baptis Anak - 2 hari" <?= set_value('leave_type') == 'Khitanan/Baptis Anak - 2 hari' ? 'selected' : '' ?>>Khitanan/Baptis Anak - 2 hari</option>
+                            <option value="Kematian istri/suami/anak/orang tua/mertua/menantu karyawan - 2 hari" <?= set_value('leave_type') == 'Kematian istri/suami/anak/orang tua/mertua/menantu karyawan - 2 hari' ? 'selected' : '' ?>>Kematian istri/suami/anak/orang tua/mertua/menantu karyawan - 2 hari</option>
+                            <option value="Kematian saudara kandung/ipar/orang tinggal serumah - 1 hari" <?= set_value('leave_type') == 'Kematian saudara kandung/ipar/orang tinggal serumah - 1 hari' ? 'selected' : '' ?>>Kematian saudara kandung/ipar/orang tinggal serumah - 1 hari</option>
+                            <option value="Pernikahan Saudara Kandung - 1 hari" <?= set_value('leave_type') == 'Pernikahan Saudara Kandung - 1 hari' ? 'selected' : '' ?>>Pernikahan Saudara Kandung - 1 hari</option>
+                            <option value="Karyawati Melahirkan - 3 bulan" <?= set_value('leave_type') == 'Karyawati Melahirkan - 3 bulan' ? 'selected' : '' ?>>Karyawati Melahirkan - 3 bulan</option>
+                            <option value="Ijin Ibadah Umat Beragama - 35 hari *disesuaikan" <?= set_value('leave_type') == 'Ijin Ibadah Umat Beragama - 35 hari *disesuaikan' ? 'selected' : '' ?>>Ijin Ibadah Umat Beragama - 35 hari *disesuaikan</option>
+                            <option value="Karyawan menyambut anak yg terdaftar Pada Perusahaan (umat hindu) - 2 hari" <?= set_value('leave_type') == 'Karyawan
+                            menyambut anak yg terdaftar Pada Perusahaan (umat hindu) - 2 hari' ? 'selected' : '' ?>>Karyawan menyambut anak yg terdaftar Pada Perusahaan (umat hindu) - 2 hari</option>
+                        </select>
+                    </div>
                     <div class="input-group mb-6">
                         <label class="label" for="description">Deskripsi</label>
                         <textarea class="textarea" name="description" id="description"><?= set_value('description') ?></textarea>
+                        <small>Kirim bukti perizinan sakit ke email: HCTBNIF@bnifinance.co.id</small>
                     </div>
                     <div>
                         <button type="submit" class="btn bg-myorange text-white">Simpan</button>
@@ -85,6 +104,7 @@
     }
 
     initMap();
+    $('#leave-type').hide();
 
     $('#type').on('change', function() {
         if ($(this).val() == 'visit') {
@@ -93,6 +113,12 @@
         } else {
             $('#map-container').hide();
             resetPosition();
+        }
+        if ($(this).val() == 'leave') {
+            $('#leave-type').show();
+        } else {
+            $('#leave_type').val('');
+            $('#leave-type').hide();
         }
     });
 </script>
