@@ -108,6 +108,7 @@
 
     initMap();
     $('#leave-type').hide();
+    $('#ifsick').hide();
 
     $('#type').on('change', function() {
         if ($(this).val() == 'visit') {
