@@ -1,7 +1,45 @@
 <?= $this->extend('layouts/app') ?>
 
 <?= $this->section('content') ?>
+<?php $now = time_now(); ?>
 <div class="p-6">
+    <div class="grid grid-cols-1 md:grid-cols-3gap-6 mb-6">
+        <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+            <div class="flex justify-between mb-6">
+                <div>
+                    <div class="flex items-center mb-1">
+                        <div class="text-2xl font-semibold"><?= $employees->filter(function ($v, $k) use ($now) {
+                            $date = Carbon\Carbon::createFromFormat('Y-m-d', $v->date_joined);
+                            return $now->month == $date->month && $now->year == $date->year;
+                        })->count(); ?></div>
+                    </div>
+                    <div class="text-sm font-medium text-gray-400">IN</div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+            <div class="flex justify-between mb-6">
+                <div>
+                    <div class="flex items-center mb-1">
+                        <div class="text-2xl font-semibold"><?= $employees->count() ?></div>
+                    </div>
+                    <div class="text-sm font-medium text-gray-400">EXIST</div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
+            <div class="flex justify-between mb-6">
+                <div>
+                    <div class="flex items-center mb-1">
+                        <div class="text-2xl font-semibold"><?= $employees->filter(function ($v, $k) {
+                            return $v->contracts[0]->date_end < date('Y-m-d');
+                        })->count(); ?></div>
+                    </div>
+                    <div class="text-sm font-medium text-gray-400">OUT</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="grid grid-cols-2 gap-6 mb-6">
         <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
             <div class="flex justify-between mb-6">
@@ -13,7 +51,7 @@
                 </div>
             </div>
 
-            
+
         </div>
         <div class="bg-white rounded-md border border-gray-100 p-6 shadow-md shadow-black/5">
             <div class="flex justify-between mb-4">
@@ -24,7 +62,7 @@
                     <div class="text-sm font-medium text-gray-400">Pegawai hampir habis kontrak</div>
                 </div>
             </div>
-            
+
         </div>
     </div>
     <div class="grid grid-cols-1 gap-6 mb-6">
@@ -139,6 +177,7 @@
             form.submit();
         }
     }
+
     function updateContract(id) {
         if (confirm('Apakah Anda yakin?')) {
             const form = document.createElement('form');
