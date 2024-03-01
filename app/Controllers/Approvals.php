@@ -38,7 +38,7 @@ class Approvals extends BaseController
     public function history()
     {
         $title = 'Approvals History';
-        $proposals = ProposalModel::whereHas('action', function ($query) {
+        $proposals = ProposalModel::with('employee')->whereHas('action', function ($query) {
             return $query->where('actor_id', get_user()->id);
         })->where('department_id', get_user()->department_id)->latest()->get();
         return view('approvals/history', compact('title', 'proposals'));
