@@ -116,7 +116,11 @@ class Proposals extends BaseController
     public function recap()
     {
         $title = 'Proposal Recap';
-        $proposals = ProposalModel::with('employee')->get();
-        return view('proposals/recap', compact('title', 'proposals'));
+        $proposals = ProposalModel::with(['employee', 'action'])->get();
+        $leaveCount = $proposals->where('type', 'leave')->count();
+        $visitCount = $proposals->where('type', 'visit')->count();
+        $sickCount = $proposals->where('type', 'sick')->count();
+        $lateCount = $proposals->where('type', 'late')->count();
+        return view('proposals/recap', compact('title', 'proposals', 'leaveCount', 'visitCount', 'sickCount', 'lateCount'));
     }
 }
