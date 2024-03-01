@@ -17,9 +17,9 @@
             <div class="flex justify-between mb-4">
                 <div>
                     <div class="flex items-center mb-1">
-                        <div class="text-2xl font-semibold"><?= $lateCount ?></div>
+                        <div class="text-2xl font-semibold"><?= $visitCount ?></div>
                     </div>
-                    <div class="text-sm font-medium text-gray-400">Izin Terlambat</div>
+                    <div class="text-sm font-medium text-gray-400">Izin Kunjungan</div>
                 </div>
             </div>
         </div>
