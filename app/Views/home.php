@@ -44,21 +44,21 @@
             <div class="flex justify-between mb-6">
                 <div>
                     <div class="flex items-center mb-1">
-                        <div class="text-2xl text-mygreen font-semibold">Profile</div>
+                        <div class="text-2xl text-mygreen font-semibold">Data Pribadi</div>
                     </div>
                 </div>
             </div>
             <table class="items-center w-full bg-transparent border-collapse">
                 <tr class="px-4 text-gray-800 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                    <td class="p-1 font-bold">Code</td>
+                    <td class="p-1 font-bold">NIP</td>
                     <td class="p-1"><?= $user->code ?></td>
                 </tr>
                 <tr class="px-4 text-gray-800 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                    <td class="p-1 font-bold">Name</td>
+                    <td class="p-1 font-bold">Nama Lengkap</td>
                     <td class="p-1"><?= $user->name ?></td>
                 </tr>
                 <tr class="px-4 text-gray-800 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
-                    <td class="p-1 font-bold">Role</td>
+                    <td class="p-1 font-bold">Jabatan</td>
                     <td class="p-1"><?= $user->role->name ?></td>
                 </tr>
                 <tr class="px-4 text-gray-800 dark:text-gray-200 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">
