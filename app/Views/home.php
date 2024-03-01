@@ -2,6 +2,7 @@
 
 <?= $this->section('content') ?>
 <!-- Content -->
+<?php if (!has_role(['SPA'])) : ?>
 <div class="p-6">
     <?php if (!has_role(['SPV'])) : ?>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
@@ -109,4 +110,5 @@
     </div> -->
     <?php endif; ?>
 </div>
+<?php endif; ?>
 <?= $this->endSection() ?>

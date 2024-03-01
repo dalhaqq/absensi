@@ -29,8 +29,8 @@
             </a>
         </li>
     <?php endif; ?>
-    <span class="text-myorange font-bold">MAIN MENU</span>
     <?php if (has_role(['SPV'])) : ?>
+        <span class="text-myorange font-bold">MAIN MENU</span>
         <li class="mb-1 group">
             <a href="<?= route_to('approvals.pending') ?>" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-mygrey rounded-md group-[.active]:bg-mygrey group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                 <i class="ri-file-check-line mr-3 text-lg"></i>
@@ -44,6 +44,7 @@
             </a>
         </li>
     <?php elseif (has_role(['STF'])) : ?>
+        <span class="text-myorange font-bold">MAIN MENU</span>
         <li class="mb-1 group">
             <a href="<?= route_to('proposals.create') ?>" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-mygrey rounded-md group-[.active]:bg-mygrey group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                 <i class="ri-file-add-line mr-3 text-lg"></i>
