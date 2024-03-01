@@ -8,7 +8,7 @@
             <span class="text-sm">Home</span>
         </a>
     </li>
-    <?php if (has_access(['super', 'admin'])) : ?>
+    <?php if (has_access(['super'])) : ?>
         <!-- <span class="text-myorange font-bold">ADMIN</span> -->
         <!-- <li class="mb-1 group">
             <a href="<?= route_to('departments') ?>" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-mygrey rounded-md group-[.active]:bg-mygrey group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
@@ -22,14 +22,12 @@
                 <span class="text-sm">Kelola Pegawai</span>
             </a>
         </li>
-        <?php if (has_access(['super'])) : ?>
-            <li class="mb-1 group">
-                <a href="<?= route_to('admins') ?>" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-mygrey rounded-md group-[.active]:bg-mygrey group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
-                    <i class="ri-admin-line mr-3 text-lg"></i>
-                    <span class="text-sm">Kelola Admin</span>
-                </a>
-            </li>
-        <?php endif; ?>
+        <li class="mb-1 group">
+            <a href="<?= route_to('admins') ?>" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-mygrey rounded-md group-[.active]:bg-mygrey group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
+                <i class="ri-admin-line mr-3 text-lg"></i>
+                <span class="text-sm">Kelola Admin</span>
+            </a>
+        </li>
     <?php endif; ?>
     <span class="text-myorange font-bold">MAIN MENU</span>
     <?php if (has_role(['SPV'])) : ?>
