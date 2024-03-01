@@ -21,9 +21,7 @@
             <div class="flex justify-between mb-6">
                 <div>
                     <div class="flex items-center mb-1">
-                        <div class="text-2xl font-semibold"><?= $employees->filter(function ($v, $k) {
-                            return $v->contracts[0]->date_end >= date('Y-m-d');
-                        })->count(); ?></div>
+                        <div class="text-2xl font-semibold"><?= $activeEmployees ?></div>
                     </div>
                     <div class="text-sm font-medium text-gray-400">EXIST</div>
                 </div>
@@ -141,7 +139,7 @@
                     </thead>
                     <tbody>
                         <?php $no = 1;
-                        foreach ($employees as $employee) : ?>
+                        foreach ($activeEmployees as $employee) : ?>
                             <tr>
                                 <td class="text-center"><?= $no++ ?></td>
                                 <td><?= $employee->code ?></td>
