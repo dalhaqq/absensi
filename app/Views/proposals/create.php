@@ -62,7 +62,7 @@
                     <div class="input-group mb-6">
                         <label class="label" for="description">Deskripsi</label>
                         <textarea class="textarea" name="description" id="description"><?= set_value('description') ?></textarea>
-                        <small> Kirim bukti perizinan sakit ke email:
+                        <small id="ifsick"> Kirim bukti perizinan sakit ke email:
                             <a href="mailto:HCTBNIF@bnifinance.co.id" style="text-decoration: underline; color: blue;">HCTBNIF@bnifinance.co.id</a>
                         </small>
                     </div>
