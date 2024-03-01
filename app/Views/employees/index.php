@@ -80,7 +80,7 @@
                 </div>
             <?php endif; ?>
             <div class="mb-6">
-                <div class="text-mygreen font-semibold">Daftar Pegawai</div>
+                <div class="text-mygreen font-semibold">Daftar Pegawai Aktif</div>
             </div>
             <div class="overflow-x-auto">
                 <table class="table-default">

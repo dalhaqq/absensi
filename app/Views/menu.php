@@ -21,13 +21,13 @@
         <li class="mb-1 group">
             <a href="<?= route_to('employees') ?>" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-mygrey rounded-md group-[.active]:bg-mygrey group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                 <i class="ri-user-line mr-3 text-lg"></i>
-                <span class="text-sm">Data Karyawan</span>
+                <span class="text-sm">Data Pegawai</span>
             </a>
         </li>
         <li class="mb-1 group">
             <a href="<?= route_to('proposals.recap') ?>" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-mygrey rounded-md group-[.active]:bg-mygrey group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                 <i class="ri-user-line mr-3 text-lg"></i>
-                <span class="text-sm">Rekapitulasi Perizinan Karyawan</span>
+                <span class="text-sm">Rekapitulasi Perizinan Pegawai</span>
             </a>
         </li>
         <!-- <li class="mb-1 group">
