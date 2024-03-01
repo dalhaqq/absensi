@@ -112,4 +112,11 @@ class Proposals extends BaseController
         curl_close($curl);
         return $result['display_name'];
     }
+
+    public function recap()
+    {
+        $title = 'Proposal Recap';
+        $proposals = ProposalModel::with('employee')->get();
+        return view('proposals/recap', compact('title', 'proposals'));
+    }
 }

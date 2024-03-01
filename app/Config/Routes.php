@@ -50,6 +50,9 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
         $routes->post('reject/(:num)', [Approvals::class, 'reject/$1'], ['as' => 'approvals.reject']);
         $routes->get('history', [Approvals::class, 'history'], ['as' => 'approvals.history']);
     });
+    $routes->group('proposals', ['filter' => ['auth', 'role:SPA']], function ($routes) {
+        $routes->get('recap', [Proposals::class, 'recap'], ['as' => 'proposals.recap']);
+    });
     $routes->group('proposals', ['filter' => ['auth', 'role:STF']], function ($routes) {
         $routes->get('create', [Proposals::class, 'create'], ['as' => 'proposals.create']);
         $routes->post('create', [Proposals::class, 'store'], ['as' => 'proposals.store']);

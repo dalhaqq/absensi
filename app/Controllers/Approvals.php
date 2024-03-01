@@ -11,7 +11,7 @@ class Approvals extends BaseController
     public function pending()
     {
         $title = 'Approvals Pending';
-        $proposals = ProposalModel::doesntHave('action')->where('department_id', get_user()->department_id)->get();
+        $proposals = ProposalModel::with('employee')->doesntHave('action')->where('department_id', get_user()->department_id)->get();
         return view('approvals/pending', compact('title', 'proposals'));
     }
 
