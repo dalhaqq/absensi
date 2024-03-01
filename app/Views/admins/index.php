@@ -7,7 +7,7 @@
             <div class="flex justify-between mb-6">
                 <div>
                     <div class="flex items-center mb-1">
-                        <div class="text-2xl text-mygreen font-semibold">Admin</div>
+                        <div class="text-2xl text-mygreen font-semibold">Superadmin</div>
                     </div>
                 </div>
                 <?php if (count($employees) > 0) : ?>

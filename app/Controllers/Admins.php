@@ -13,7 +13,7 @@ class Admins extends BaseController
     {
         $title = 'Admins';
         $admins = AdminModel::with('employee')->get();
-        $employees = EmployeeModel::doesntHave('admin')->get(); // Get employees who are not yet admins
+        $employees = EmployeeModel::doesntHave('admin')->get(); 
         return view('admins/index', compact('title', 'admins', 'employees'));
     }
 
