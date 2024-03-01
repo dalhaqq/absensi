@@ -31,6 +31,7 @@
                                 <option value="visit" <?= set_value('type') == 'visit' ? 'selected' : '' ?>>Kunjungan Cabang</option>
                                 <option value="leave" <?= set_value('type') == 'leave' ? 'selected' : '' ?>>Cuti</option>
                                 <option value="late" <?= set_value('type') == 'late' ? 'selected' : '' ?>>Terlambat</option>
+                                <option value="sick" <?= set_value('type') == 'sick' ? 'selected' : '' ?>>Sakit</option>
                             </select>
                         </div>
                     </div>
@@ -43,7 +44,7 @@
                     <div id="leave-type" class="input-group mb-6">
                         <label class="label" for="leave_type">Jenis Cuti</label>
                         <select class="select" name="leave_type" id="leave_type">
-                            <option value="Melangsungkan Pernikahan Untuk Pertama Kali - 3 hari" <?= set_value('leave_type') == 'Melaingsungkan Pernikahan Untuk Pertama Kali - 3 hari' ? 'selected' : '' ?>>Melaingsungkan Pernikahan Untuk Pertama Kali - 3 hari</option>
+                            <option value="Melangsungkan Pernikahan Untuk Pertama Kali - 3 hari" <?= set_value('leave_type') == 'Melangsungkan Pernikahan Untuk Pertama Kali - 3 hari' ? 'selected' : '' ?>>Melangsungkan Pernikahan Untuk Pertama Kali - 3 hari</option>
                             <option value="Menikahkan Anak - 2 hari" <?= set_value('leave_type') == 'Menikahkan Anak - 2 hari' ? 'selected' : '' ?>>Menikahkan Anak - 2 hari</option>
                             <option value="Istri Sah Karyawan Melahirkan/Keguguran - 2 hari" <?= set_value('leave_type') == 'Istri Sah Karyawan Melahirkan/Keguguran - 2 hari' ? 'selected' : '' ?>>Istri Sah Karyawan Melahirkan/Keguguran - 2 hari</option>
                             <option value="Karyawati Keguguran - 1,5 bulan" <?= set_value('leave_type') == 'Karyawati Keguguran - 1,5 bulan' ? 'selected' : '' ?>>Karyawati Keguguran - 1,5 bulan</option>
