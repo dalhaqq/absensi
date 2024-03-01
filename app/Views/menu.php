@@ -43,7 +43,7 @@
                 <span class="text-sm">Lihat Riwayat Perizinan</span>
             </a>
         </li>
-    <?php else : ?>
+    <?php elseif (has_role(['STF'])) : ?>
         <li class="mb-1 group">
             <a href="<?= route_to('proposals.create') ?>" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-mygrey rounded-md group-[.active]:bg-mygrey group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                 <i class="ri-file-add-line mr-3 text-lg"></i>
