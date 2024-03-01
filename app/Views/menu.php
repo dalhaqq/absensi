@@ -10,12 +10,12 @@
     </li>
     <?php if (has_access(['super', 'admin'])) : ?>
         <span class="text-myorange font-bold">ADMIN</span>
-        <li class="mb-1 group">
+        <!-- <li class="mb-1 group">
             <a href="<?= route_to('departments') ?>" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-mygrey rounded-md group-[.active]:bg-mygrey group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                 <i class="ri-team-line mr-3 text-lg"></i>
                 <span class="text-sm">Kelola Departemen</span>
             </a>
-        </li>
+        </li> -->
         <li class="mb-1 group">
             <a href="<?= route_to('employees') ?>" class="flex font-semibold items-center py-2 px-4 text-gray-900 hover:bg-mygrey rounded-md group-[.active]:bg-mygrey group-[.active]:text-white group-[.selected]:bg-gray-950 group-[.selected]:text-gray-100">
                 <i class="ri-user-line mr-3 text-lg"></i>
