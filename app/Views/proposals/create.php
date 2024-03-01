@@ -62,7 +62,9 @@
                     <div class="input-group mb-6">
                         <label class="label" for="description">Deskripsi</label>
                         <textarea class="textarea" name="description" id="description"><?= set_value('description') ?></textarea>
-                        <small>Kirim bukti perizinan sakit ke email: HCTBNIF@bnifinance.co.id</small>
+                        <small> Kirim bukti perizinan sakit ke email:
+                            <a href="mailto:HCTBNIF@bnifinance.co.id" style="text-decoration: underline; color: blue;">HCTBNIF@bnifinance.co.id</a>
+                        </small>
                     </div>
                     <div>
                         <button type="submit" class="btn bg-myorange text-white">Simpan</button>
@@ -120,6 +122,11 @@
         } else {
             $('#leave_type').val('');
             $('#leave-type').hide();
+        }
+        if ($(this).val() == 'sick') {
+            $('#ifsick').show();
+        } else {
+            $('#ifsick').hide();
         }
     });
 </script>
