@@ -44,7 +44,11 @@ class ProposalModel extends Model
         ]);
         $response = curl_exec($curl);
         curl_close($curl);
-        $response = json_decode($response, true);
-        return $response['display_name'];
+        $result = json_decode($response, true);
+        try {
+            return $result['display_name'];
+        } catch (\Exception $e) {
+            var_dump($this->toArray(), $response);exit;
+        }
     }
 }
